@@ -3,7 +3,7 @@ version: '3.8'
 
 services:
   test1:
-    image: "tensorflow/tensorflow:1.14.0-gpu-py3-jupyter"
+    image: "deepsignnet:1.0"
     restart: unless-stopped    
     runtime: nvidia
     environment:
