@@ -2,14 +2,16 @@
 version: '3.8'
 
 services:
-  test1:
-    image: "deepsignnet:1.0"
+  slt:
+    build: ./slt
+    command: python manage.py runserver 0.0.0.0:8888
     restart: unless-stopped    
     runtime: nvidia
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all     
     volumes:
-      - ~/Desktop/harris/deepsignnet_v1:/tf/notebooks
+      #- ~/Desktop/harris/deepsignnet_v1/slt:/usr/src/slt
+      - ./slt:/usr/src/slt/
     ports:
       - 8081:8888
