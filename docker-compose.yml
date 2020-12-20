@@ -14,3 +14,4 @@ services:
       - ./slt:/usr/src/slt/
     ports:
       - 8081:8888
+      - 8082:8889
