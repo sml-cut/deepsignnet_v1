@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 @csrf_exempt
-def image_upload(request):
+def web_video_upload(request):
     if request.method == "POST" and request.FILES["video_file"]:
         video_file = request.FILES["video_file"]
         fs = FileSystemStorage()
@@ -18,3 +18,20 @@ def image_upload(request):
             "video_translation": "This is a dummy video translation"
         })
     return render(request, "upload.html")
+    
+
+@csrf_exempt
+def rest_video_upload(request):
+    if request.method == "POST" and request.FILES["video_file"]:
+        video_file = request.FILES["video_file"]
+        fs = FileSystemStorage()
+        filename = fs.save('received/' + video_file.name, video_file)
+        video_url = fs.url(filename)
+        print(video_url)
+        return JsonResponse({
+            "video_url": video_url,
+            "video_translation": "This is a dummy video translation",
+        })
+    return JsonResponse({'API_type': 'GET'})
+
+

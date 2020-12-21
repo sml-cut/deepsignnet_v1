@@ -28,10 +28,11 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
-from slt.views import image_upload
+from slt.views import web_video_upload, rest_video_upload
 
 urlpatterns = [
-    path("", image_upload, name="upload"),
+    path("", web_video_upload, name="upload"),
+    path("rest", rest_video_upload, name="upload"),
 ]
 
 
