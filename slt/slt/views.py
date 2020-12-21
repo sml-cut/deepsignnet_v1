@@ -14,6 +14,7 @@ def image_upload(request):
         image_url = fs.url(filename)
         print(image_url)
         return render(request, "upload.html", {
-            "image_url": image_url
+            "image_url": image_url,
+            "video_translation": "This is a dummy video translation"
         })
     return render(request, "upload.html")
