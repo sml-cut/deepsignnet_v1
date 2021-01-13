@@ -27,6 +27,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '176.227.235.62', '[::1]']
 
+# enable cors
+CORS_ORIGIN_ALLOW_ALL=True
+# or
+#CORS_ORIGIN_WHITELIST = [
+#    'http://google.com',
+#    'http://hostname.example.com',
+#    'http://localhost:8000',
+#    'http://127.0.0.1:9000'
+#]
 
 # Application definition
 
@@ -38,9 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'slt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
