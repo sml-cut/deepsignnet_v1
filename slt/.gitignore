@@ -1,1 +1,3 @@
 /received/*
+/slt/model/bvlc_alexnet.npy
+/slt/model/translate.*
