@@ -27,13 +27,19 @@
 
 	<form action="{% url "upload" %}" method="post" enctype="multipart/form-data" >
 		{% csrf_token %}
-	        <input type="file" name="video_file">
+            <input type="file" name="video_file">
+            <br>
+            <br>
+            Request Details <input type="text" name="request_details">
+            <br>
+            <br>
 	        <input type="submit" class="btn btn-primary" value="Submit" />
 	</form>
 
 	{% if video_url %}
 		<p>File uploaded at: <a href="{{ video_url }}">{{ video_url }}</a></p>
 		<p>Sign Language Translation: {{ video_translation }}</p>
+		<p>Request Details: {{ request_details }}</p>
 	{% endif %}
     </div>
     

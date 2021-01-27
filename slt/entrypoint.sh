@@ -1,5 +1,7 @@
 #!/bin/sh
 
+apt install libgl1-mesa-glx
+
 python -m django startproject config .
 python manage.py startapp slt
 python manage.py migrate
