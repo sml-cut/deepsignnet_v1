@@ -74,6 +74,7 @@ def rest_video_upload(request):
         split_duration = round(t_split - t_start, 2)
         inference_duration = round(t_inferred - t_split, 2)
 
+
         return JsonResponse({
             "video_stored_at": video_url,
             "request_details": {"received_at": received_at,
